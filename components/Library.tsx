@@ -3,7 +3,7 @@
 import useAuthModal from "@/hooks/useAuthModal";
 import useUploadModal from "@/hooks/useUploadModal";
 import { useUser } from "@/hooks/useUser";
-
+import useOnPlay from "@/hooks/useOnPlay";
 import { Song } from "@/types";
 
 import { AiOutlinePlus } from "react-icons/ai";
@@ -20,6 +20,8 @@ const Library: React.FC<LibraryProps> = ({
   const authModal = useAuthModal();
   const uploadModal = useUploadModal();
   const { user } = useUser();
+
+  const onPlay = useOnPlay(songs)
 
   const onClick = () => {
     if (!user) {
@@ -45,7 +47,7 @@ const Library: React.FC<LibraryProps> = ({
       <div className="flex flex-col gap-y-2 mt-4 px-3">
         {songs.map((item) => (
           <MediaItem 
-          onClick={() => {}}
+          onClick={(id:string) => onPlay(id)}
           key= {item.id}
           data={item}
           />

@@ -21,10 +21,11 @@ export interface UserDetails {
 
 export interface Product {
   id: string;
+  product_id?: string;
   active?: boolean;
   name?: string;
   description?: string;
-  images?: string;
+  image?: string;
   metadata?: Stripe.Metadata;
 }
 
